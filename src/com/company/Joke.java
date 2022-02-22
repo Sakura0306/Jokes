@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Joke {
     public String category;
     public String type;
@@ -25,11 +27,7 @@ public class Joke {
     }
 
     public String toString() {
-        if (this.joke != null) {
-            return this.joke;
-        } else {
-            return this.setup + " " + delivery;
-        }
+        return Objects.requireNonNullElseGet(this.joke, () -> this.setup + " " + delivery);
     }
 
 }
